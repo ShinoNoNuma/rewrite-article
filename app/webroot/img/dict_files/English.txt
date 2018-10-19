@@ -1,0 +1,134 @@
+     A SET OF DICTIONARIES FOR AMERICAN AND BRITISH ENGLISH
+
+In the WinEdt directory on CTAN, there are a number of contributed
+dictionaries for spell checking in several languages. For English one
+has the choice between UK.dic and US.dic. However, I have found these,
+especially UK.dic, to be unsatisfactory for a number of reasons.
+
+1. The UK dictionary is missing many important words beginning with "m"
+   for some reason. There was an email at some time mentioning how the
+   file was corrupted at some point.
+
+2. It contains many more 2 and 3 letter combinations than US.dic,
+   combinations that do not seem like any words that I know.
+
+3. UK.dic accepts both -ize and -ise versions of words like "maximize";
+   this is indeed correct for British English, but in any single work,
+   a consistent spelling must be used; hence one must decide for one or
+   the other and the spell checker should be switchable accordingly.
+
+4. The US.dic is rigidly American, and does not conform to my personal
+   (Canadian) style, which is a mixture of US and UK. In fact, the
+   distinction between American and British spelling is not so
+   straightforward as one might think. See below.
+
+5. The US.dic is prudish, missing some very fundamental four-letter
+   words, which are to be found in UK.dic.
+
+What is American and what is British spelling anyway?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+There are five categories of words in English with spelling variants; the
+differences are often referred to as US or UK, but as the table below
+illustrates, this is not so clear cut.
+
+I designate the five categories with a representative word from each:
+  color/colour
+  labeled/labelled
+  center/centre
+  maximize/maximise
+  analyze/analyse
+In each case, I give what is normally considered American first, then
+the form normally considered British. However, checking with the
+Webster's and Oxford dictionaries, one finds that the following are
+permitted (the preferred form is given first):
+
+         Webster (US)             Oxford (UK)
+          color                     colour
+          labeled/labelled          labelled
+          center                    centre/center
+          maximize                  maximize/maximise
+          analyze                   analyse
+
+This shows that we could agree on labelled, center, maximize, and only
+need to quarrel about color/colour and analyze/analyse. (This is my own personal style,
+where I settle for "colour" and "analyse".)
+
+(Consider the origin of this word. The Latin is "color, coloris", so that
+"color" is indeed the true original word. The English "colour" comes from the
+French "couleur". The same applies to "honour/honor". More interesting is
+"neighbour/neighbor" which is not a Latin root at all, but a Germanic one. It
+is related to the German "Nachbar" (literally "the one beside" but which
+translates exactly as "neighbour". So why is the "u" there at all? English is
+weird!)
+
+More flexibility is needed in the spell checker than that provided by
+only two dictionary files.
+
+My solution: 11 files
+~~~~~~~~~~~~~~~~~~~~
+
+I have taken UK.dic and US.dic, merged them, extracted the words in the
+four categories, placing them 8 additional dictionary files.
+    eng_com.dic  (150843 words with no alternative spellings)
+    colour.dic   and color.dic   (366 words with -our/-or variant)
+    labelled.dic and labeled.dic (326 words with -ell-/-el- variant)
+    centre.dic   and center.dic  (85 words with -re/-er variant)
+    ize.dic      and ise.dic     (3387 words with -ize/-ise variant)
+    yze.dic      and yse.dic     (87 words with -yze/-yse variant)
+
+Six of these files must be loaded each time: eng_com.dic and one of
+each pair. One uses the WinEdt dictionary manager to activate as one
+pleases. Alternatively, one could use them to make up one big
+dictionary of the combination that one desires. I do provide ready-to-run
+installations, see below.
+
+There are 32 possible combinations, but I only see 4 realistic ones:
+  strict American:   color, labeled, center, ize, yze
+  liberal American:  color, labelled, center, ize, yze
+  liberal British:   colour, labelled, center, ize, yse
+  strict British:    colour, labelled, centre, ise, yse
+
+I set up WinEdt (32 bit version with modes and submodes) with submodes
+UK and US, to append to main modes TeX and ANSI. My default is liberal
+British, but strict British and strict American are optionally there.
+The filters for the 11 dictionaries are thus:
+
+eng_com.dic    *           (always active)
+color.dic      US          (only for US TeX files)
+colour.dic     *|US        (for all but US TeX files)
+labeled.dic    US          (only for US TeX files)
+labelled.dic   *|US        (for all but US TeX files)
+center.dic     *|UK        (for all but UK TeX files)
+centre.dic     UK          (only for UK TeX files)
+ize.dic        *|UK        (for all but UK TeX files)
+ise.dic        UK          (only for UK TeX files)
+yze.dic        US          (only for US TeX files)
+yse.dic        *|US        (for all but US TeX files)
+
+In fact, my situation is more complex because I also have submodes DE and NEU
+for German texts, old and new spelling rules.
+
+To simplify the installation for you, I provide WinEdt macros:
+ eng_dic.edt      For the above setup, liberal British as default
+ eng_US.edt       For US as default
+ eng_UK.edt       For UK as default
+Place the contents of english.zip into %B\dict\eng where %B is the directory
+where winedt.exe is found. Then select Macros|Execute Macro... from the tool
+bar, running one of the above .edt files.
+
+WARNING: these macros will load the standard set of modes with :US and :UK
+added as submodes. If you have any customize modes of your own, do not do
+this. Rather, add the submodes by hand and then load the appropriate
+eng_*.dat file under  Options|Dictionaries  Right mouse button Load from...
+
+As always, you should backup your setup  (Options|Configurations|Backup)
+before making any of the above installations.
+
+Patrick W Daly
+Max-Planck Institut fuer Aeronomie
+37191 Katlenburg-Lindau
+Germany
+daly@linmpi.mpg.de
+
+2000 March 3
