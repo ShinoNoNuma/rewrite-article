@@ -13,12 +13,15 @@ How to use :
 
 			3 - Create a MySQL Database
 
-			    mysql -u root -p
+			    mysql -uroot -p
 			    CREATE DATABASE IF NOT EXISTS rephrase;
+			
+			4 - Import the database
+			    mysql -uroot -p rephrase < rephrase.sql 
 
-			4 - Edit the file app/Config/database.php
+			5 - Edit the file app/Config/database.php
 
-			5 - App Rewrite Article Generator is ready, go to http://localhost/rephrase
+			6 - App Rewrite Article Generator is ready, go to http://localhost/rephrase
 
 
 Notice : This project is just a prototype.
