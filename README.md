@@ -9,7 +9,7 @@ Article Rewriter Tool - Reword or Paraphrase Text Content, is a machine learning
 Clone the repository in you web app folder:
 
 ```shell
-git clone -b master git://github.com/ShinoNoNuma/rewrite-article.git rewrite-article
+git clone -b master git://github.com/ShinoNoNuma/rewrite-article.git rephrase
 ```
 Change the directory permission for /tmp folder:
 
