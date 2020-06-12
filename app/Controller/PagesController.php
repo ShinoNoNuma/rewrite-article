@@ -160,8 +160,8 @@ private function getSynonymByWord($words,$sentences,$level){
 	$this->loadModel('Synonym');
 	for($a=0; $a < count($sentences); $a++){
 		for($b=0; $b < count($words[$a]); $b++){
-		//Don't need to find the sysnonym for the words with minus than 4 chars
-			if(strlen($words[$a][$b]) < $level || $this->verifyValidWord($words[$a][$b]) == 0){
+		//Don't need to find sysnonyms for the words with less than 4 chars (by default) can be changed by the user
+			if(strlen($words[$a][$b]) < $level && $this->verifyValidWord($words[$a][$b]) == 0){
 				continue;
 			}
 			$checkWordExist = $this->Synonym->wordExist($words[$a][$b]);
