@@ -44,7 +44,7 @@ private function combination($array, array &$results, $str = '') {
 
 //Find Synonym by word on thesaurus.com
 private function findSynonymOnWeb($word){
-	$url = 'http://www.thesaurus.com/browse/'.$word;
+	$url = 'https://www.thesaurus.com/browse/'.$word;
 	$ch = curl_init();
 	$timeout = 30;
 	curl_setopt($ch, CURLOPT_URL, $url);
@@ -59,7 +59,13 @@ private function findSynonymOnWeb($word){
 	$dom = new DOMDocument();
 	@$dom->loadHTML($html);
 	$xpath = new DOMXPath($dom);
+
+	//QUERY FOR THE OLD VERSION (2018) (LET's KEEP IT IN CASE)
 	$synonyms = $xpath->query("//div[@class='synonyms'][1]/div[@class='filters']/div[@class='relevancy-block']/div[@class='relevancy-list']/ul/li/a/span[@class='text']");
+	if ($synonyms['length'] == 0) {
+		//QUERY FOR THE NEW VERSION 2020
+		$synonyms = $xpath->query("//div[@id='root'][1]/div/div/div/main/section/section/div/ul/li/span");
+	}
 	$synonymList = array();
 	foreach ($synonyms as $key => $synonym) {
 		$synonymList[$key] = $synonym->nodeValue;
@@ -161,7 +167,10 @@ private function getSynonymByWord($words,$sentences,$level){
 	for($a=0; $a < count($sentences); $a++){
 		for($b=0; $b < count($words[$a]); $b++){
 		//Don't need to find sysnonyms for the words with less than 4 chars (by default) can be changed by the user
-			if(strlen($words[$a][$b]) < $level && $this->verifyValidWord($words[$a][$b]) == 0){
+			if(strlen($words[$a][$b]) < intval($level)) {
+				continue;
+			}
+			if ($this->verifyValidWord($words[$a][$b]) == 0) {
 				continue;
 			}
 			$checkWordExist = $this->Synonym->wordExist($words[$a][$b]);
