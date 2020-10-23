@@ -64,7 +64,10 @@ private function findSynonymOnWeb($word){
 	$synonyms = $xpath->query("//div[@class='synonyms'][1]/div[@class='filters']/div[@class='relevancy-block']/div[@class='relevancy-list']/ul/li/a/span[@class='text']");
 	if ($synonyms['length'] == 0) {
 		//QUERY FOR THE NEW VERSION 2020
-		$synonyms = $xpath->query("//div[@id='root'][1]/div/div/div/main/section/section/div/ul/li/span");
+		//$synonyms = $xpath->query("//div[@id='root'][1]/div/div/div/main/section/section/div/ul/li/span");
+		
+		// QUERY FOR 2020/10 ;-)
+		$synonyms = $xpath->query('//*[@id="root"]/div/div/div[2]/main/section/section/div[2]/ul/li/div/a');
 	}
 	$synonymList = array();
 	foreach ($synonyms as $key => $synonym) {
