@@ -1,8 +1,6 @@
 # Rewrite Article Generator
 
-![Article Generator](https://www.sam-y.ml/img/articlegenerator.png)
-
-Article Rewriter Tool - Reword or Paraphrase Text Content, is a machine learning program that allows you to change the sentences contained in an article while keeping the same meaning. The algorithm makes that for each word he doesn't know then the program will find on the website thesaurus.com an associated list of synonyms and store it in is own database (so basically the program will be faster and faster over time). Thereafter the program will replace each word by the best possible synonym. Several configuration levels are possible. 
+Article Rewriter Tool - Reword or Paraphrase Text Content, is a machine learning program that allows you to modify the sentences contained in an article while keeping the same meaning. The algorithm is made as follows: for each word it doesn't know, the program will find a list of related synonyms on the thesaurus.com and store the list in its own database (basically, the program will be faster and faster over time). Then the program will replace each word with the best possible synonym. Several levels of configuration are possible.
 
 ### Installation
 
@@ -47,6 +45,9 @@ public $default = array(
 
 Now App Rewrite Article Generator is ready, please go to http://localhost/rephrase
 
+### Want to try?
+
+http://rephrase.ml/
 
 ***Notice : This project is just a prototype.
 	 I used the framework cakephp 2.10
