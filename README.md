@@ -1,6 +1,6 @@
 # Rewrite Article Generator
 
-Article Rewriter Tool - Reword or Paraphrase Text Content, is a machine learning program that allows you to modify the sentences contained in an article while keeping the same meaning. The algorithm is made as follows: for each word it doesn't know, the program will find a list of related synonyms on the thesaurus.com and store the list in its own database (basically, the program will be faster and faster over time). Then the program will replace each word with the best possible synonym. Several levels of configuration are possible.
+Article Rewriter Tool - Reword or Paraphrase Text Content, is a machine learning program that allows you to modify the sentences contained in an article while keeping the same meaning. The algorithm is made as follows: for each word it doesn't know, the program will find a list of related synonyms on the website thesaurus.com and store the list in its own database (basically, the program will be faster and faster over the time). Then the program will replace each word with the best possible synonym. Several levels of configuration are possible.
 
 ### Installation
 
