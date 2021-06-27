@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" class="no-js" >
 <head>
-	<?php echo $this->Html->charset(); ?>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-	<title>
-		<?php echo $this->fetch('title'); ?>
-	</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <meta name="theme-color" content="#e74c3c">
+	<title>Rewrite Article Generator - Reword or Paraphrase Text Content</title>
 	<?php
 		echo $this->Html->meta('icon');
 
@@ -25,11 +24,11 @@
 	 		echo $this->Html->script(array('nlform','jquery-3.2.1.min')); 
 ?>
 <script>
-	var nlform = new NLForm(document.getElementById( 'nl-form' ));
+	let nlform = new NLForm(document.getElementById( 'nl-form' ));
 </script>
 <script type="text/javascript">
       $('#send').click(function() {
-			  var formData = new FormData();
+			  let formData = new FormData();
 			  formData.append('text', $('#text').val());
 			  formData.append('level', $('#rephraseLevel').val());
 			  formData.append('alternate', $('#rephraseAlternate').val());
@@ -41,7 +40,7 @@
 			       dataType : "json",
 			       processData: false,
 			       contentType: false,
-			         success: function(data, statut){
+			         success: function(data, status){
 			           if(data.response == 'error'){
 			             $('#nl-form').empty();
 			             $('#nl-form').html(data.message);
@@ -52,13 +51,21 @@
 			             $('#loader').hide();
 			           }
 			         },
-			         error : function(resultat, statut, erreur){
+			         error : function(resultat, status, error){
 			           alert('Ajax error');
 			           $('#loader').hide();
 			         },
 			     });
 			     return false;
       });
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-55691203-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-55691203-3');
 </script>
 </body>
 </html>

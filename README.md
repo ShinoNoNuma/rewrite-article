@@ -7,7 +7,7 @@ Article Rewriter Tool - Reword or Paraphrase Text Content, is a machine learning
 Clone the repository in you web app folder:
 
 ```shell
-git clone -b master git://github.com/ShinoNoNuma/rewrite-article.git rephrase
+git clone -b master git://github.com/Naqwada/rewrite-article.git rephrase
 ```
 Change the directory permission for /tmp folder:
 
@@ -47,7 +47,7 @@ Now App Rewrite Article Generator is ready, please go to http://localhost/rephra
 
 ### Want to try?
 
-http://rephrase.ml/
+https://rephrase.click/
 
 ***Notice : This project is just a prototype.
 	 I used the framework cakephp 2.10
