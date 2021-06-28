@@ -47,7 +47,7 @@ Now App Rewrite Article Generator is ready, please go to http://localhost/rephra
 
 ### Want to try?
 
-https://rephrase.click/
+https://rephrase.link/
 
 ***Notice : This project is just a prototype.
 	 I used the framework cakephp 2.10
